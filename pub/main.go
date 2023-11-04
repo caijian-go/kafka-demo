@@ -36,7 +36,7 @@ func main() {
 		}
 		data, _ := json.Marshal(msg)
 		p, o, err := producer.SendMessage(&sarama.ProducerMessage{
-			Topic:     "wechat_msg",
+			Topic:     "wechat_msg_p",
 			Value:     sarama.ByteEncoder(data),
 			Partition: int32(i) % 8,
 		})

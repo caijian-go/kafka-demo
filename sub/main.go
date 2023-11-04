@@ -23,12 +23,12 @@ func main() {
 	config := sarama.NewConfig()
 	config.Version = sarama.V3_3_1_0
 
-	client, err := sarama.NewConsumerGroup([]string{"host.docker.internal:9004"}, `wechat_msg_group`, config)
+	client, err := sarama.NewConsumerGroup([]string{"host.docker.internal:9004"}, `wechat_msg_group_p`, config)
 	if err != nil {
 		panic(err)
 	}
 
-	if err := client.Consume(context.Background(), []string{"wechat_msg"}, &handler{}); err != nil {
+	if err := client.Consume(context.Background(), []string{"wechat_msg_p"}, &handler{}); err != nil {
 		panic(err)
 	}
 }

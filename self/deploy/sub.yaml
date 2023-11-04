@@ -1,0 +1,23 @@
+version: '3'
+
+#networks:
+#  local_env_net:
+#    driver: bridge
+#    ipam:
+#      config:
+#        - subnet: 172.22.0.0/16
+
+
+services:
+  kafka-demo-sub:
+    container_name: kafka-demo-sub
+    hostname: kafka-demo-sub
+    image: cosmtrek/air
+    restart: always
+    network_mode: host
+    # working_dir value has to be the same of mapped volume
+    working_dir: /kafka-demo/sub
+    extra_hosts:
+      - host.docker.internal:host-gateway
+    volumes:
+      - $HOME/go/src/kafka-demo:/kafka-demo

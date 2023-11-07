@@ -14,7 +14,6 @@ services:
     hostname: kafka-demo-pub
     image: cosmtrek/air
     restart: always
-    network_mode: host
     # working_dir value has to be the same of mapped volume
     working_dir: /kafka-demo/pub
     extra_hosts:

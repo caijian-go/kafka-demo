@@ -14,7 +14,7 @@ services:
     hostname: kafka-demo-pub
     image: cosmtrek/air
     restart: always
-    network_mode: host #即使mac使用host有无法映射问题也是必须开启的，这样才能连接外面的端口
+    network_mode: host #虽然没能实现暴露所有端口到宿主机中，但这样才能访问host.docker.internal
     # working_dir value has to be the same of mapped volume
     working_dir: /kafka-demo/pub
     extra_hosts:

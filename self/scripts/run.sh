@@ -13,12 +13,12 @@ do
     case $env in
         "sub")
             cd $ROOT_DIR/self/deploy
-            sudo docker-compose -f sub.yaml up -d
+            sudo docker-compose -f sub.yaml -p local up -d
             break
             ;;
         "pub")
             cd $ROOT_DIR/self/deploy
-            sudo docker-compose -f pub.yaml up -d
+            sudo docker-compose -f pub.yaml -p local  up -d
             break
             ;;
         *)

@@ -1,20 +1,21 @@
 version: '3'
 
-#networks:
-#  local_env_net:
-#    driver: bridge
-#    ipam:
-#      config:
-#        - subnet: 172.22.0.0/16
+networks:
+  local_env_net:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.22.0.0/16
 
 
 services:
   kafka-demo-pub:
-    container_name: kafka-demo-pub
+    container_name: demo.kafka-demo-pub
     hostname: kafka-demo-pub
     image: cosmtrek/air
     restart: always
-    network_mode: host #虽然没能实现暴露所有端口到宿主机中，但这样才能访问host.docker.internal
+    networks:
+      - local_env_net
     # working_dir value has to be the same of mapped volume
     working_dir: /kafka-demo/pub
     extra_hosts:

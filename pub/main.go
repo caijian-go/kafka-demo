@@ -21,7 +21,7 @@ func main() {
 
 	sarama.Logger = log.New(os.Stdout, "[Sarama] ", log.LstdFlags)
 
-	producer, err := sarama.NewSyncProducer([]string{"172.22.0.12:9004"}, config)
+	producer, err := sarama.NewSyncProducer([]string{"host.docker.internal:9004"}, config)
 	if err != nil {
 		panic(err)
 	}
